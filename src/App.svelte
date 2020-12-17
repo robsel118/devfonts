@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { generateFontFace } from './utils/fonts';
 	export let name: string;
+
+	$: style = generateFontFace();
 </script>
 
 <style>
@@ -11,10 +14,7 @@
 	}
 
 	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		font-family: Fira Code, Arial, Helvetica, sans-serif;
 	}
 
 	@media (min-width: 640px) {
@@ -24,8 +24,8 @@
 	}
 </style>
 
-<main>
-	<h1>Hello {name}!</h1>
+<main >
+	<h1 {style}>Hello => {name}!</h1>
 	<p>
 		Visit the
 		<a href="https://svelte.dev/tutorial">Svelte tutorial</a>
