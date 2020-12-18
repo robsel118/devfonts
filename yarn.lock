@@ -83,6 +83,13 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/svelte/-/svelte-1.0.10.tgz#30ec7feeee0bdf38b12a50f0686f8a2e7b6b9dc0"
   integrity sha512-EBrpH2iXXfaf/9z81koiDYkp2mlwW2XzFcAqn6qh7VKyP8zBvHHAQzNhY+W9vH5arAjmGAm5g8ElWq6YmXm3ig==
 
+"@types/codemirror@^0.0.102":
+  version "0.0.102"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.102.tgz#56049f14a85e170fc5b71bd76517089ca74a4036"
+  integrity sha512-WZZW8VL8BAzzAZWkiYnM5VsYz1qWYieRqHPPtC/BB015QXd3LPXtBlbRYA8lauKgM10qWYeLH8p5LsIn2SLXfA==
+  dependencies:
+    "@types/tern" "*"
+
 "@types/estree@*":
   version "0.0.45"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.45.tgz#e9387572998e5ecdac221950dab3e8c3b16af884"
@@ -116,6 +123,13 @@
   integrity sha512-2XZovu4NwcqmtZtsBR5XYLw18T8cBCnU2USFHTnYLLHz9fkhnoEMoDsqShJIOFsFhn5aJHjweiUUdTrDGujegA==
   dependencies:
     "@types/node" "*"
+
+"@types/tern@*":
+  version "0.23.3"
+  resolved "https://registry.yarnpkg.com/@types/tern/-/tern-0.23.3.tgz#4b54538f04a88c9ff79de1f6f94f575a7f339460"
+  integrity sha512-imDtS4TAoTcXk0g7u4kkWqedB3E4qpjXzCpD2LU5M5NAXHzCDsypyvXSaG7mM8DKYkCRa7tFp4tS/lp/Wo7Q3w==
+  dependencies:
+    "@types/estree" "*"
 
 ansi-styles@^3.2.1:
   version "3.2.1"
@@ -183,6 +197,19 @@ callsites@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
+
+carbon-components-svelte@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/carbon-components-svelte/-/carbon-components-svelte-0.26.0.tgz#6b3ff3fe20ad508b5f217c513c9493e33f415812"
+  integrity sha512-F4/FZCfhNXeSJijBkrMpGFyhG9tnOM91psmkZo140pwlMVHmI14ae1cdxTki0riSon2Hcu1TGCPVK36fgcM4pQ==
+  dependencies:
+    carbon-icons-svelte "^10.21.0"
+    flatpickr "4.6.3"
+
+carbon-icons-svelte@^10.21.0:
+  version "10.21.0"
+  resolved "https://registry.yarnpkg.com/carbon-icons-svelte/-/carbon-icons-svelte-10.21.0.tgz#9bbdd37d5513d484e9706d6335c121f60f3186c4"
+  integrity sha512-5NNaRdmbS4N36dUGNj72Ys3VqVjH3fZ69AhYUHx+bH02GFYCwAaE49qjtP77kP7DKMtDV9NmMEti/P/JB83aYQ==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -296,6 +323,11 @@ fill-range@^7.0.1:
   integrity sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==
   dependencies:
     to-regex-range "^5.0.1"
+
+flatpickr@4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.3.tgz#15a8b76b6e34e3a072861250503a5995b9d3bc60"
+  integrity sha512-007VucCkqNOMMb9ggRLNuJowwaJcyOh4sKAFcdGfahfGc7JQbf94zSzjdBq/wVyHWUEs5o3+idhFZ0wbZMRmVQ==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -717,7 +749,7 @@ svelte-check@^1.0.0:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-preprocess@^4.0.0:
+svelte-preprocess@^4.0.0, svelte-preprocess@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-4.6.1.tgz#a7de4d91b32d5608b6637da960ee81e6089ae276"
   integrity sha512-s7KdhR2pOsffyOzZIMEb315f6pfgeDnOWN47m6YKFeSEx3NMf/79Znc3vuG/Ai79SL/vsi86WDrjFPLGRfDesg==
