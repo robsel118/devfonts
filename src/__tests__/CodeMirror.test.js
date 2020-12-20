@@ -45,8 +45,8 @@ test("it should render a codemirror component with the correct theme and value",
     },
   });
   expect(container.querySelector("textarea")).toHaveStyle({ display: "none" });
-  expect(container.querySelectorAll("div")[1]).toHaveClass("CodeMirror");
-  expect(container.querySelectorAll("div")[1]).toHaveClass("cm-s-dracula");
+  expect(container.querySelectorAll("div")[2]).toHaveClass("CodeMirror");
+  expect(container.querySelectorAll("div")[2]).toHaveClass("cm-s-dracula");
   expect(container.querySelectorAll("textarea")[1]).toHaveValue(
     'const t = "hello"'
   );

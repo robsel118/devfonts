@@ -16,6 +16,8 @@
 </script>
 
 <style>
+
+
 	main {
 		padding: 1em;
 		max-width: 240px;
@@ -38,7 +40,7 @@
 		rel="stylesheet"
 		href={`https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/${selectedTheme}.css`} />
 </svelte:head>
-<main>
+<main {style}>
 	<p>
 		Visit the
 		<a href="https://svelte.dev/tutorial">Svelte tutorial</a>
@@ -56,5 +58,5 @@
 	</Select>
 
 	<p>you have chose {selectedMode}</p>
-	<CodeMirror value="const foo = 'bar'" mode={selectedMode} theme={selectedTheme}/>
+	<CodeMirror value="const foo => 'bar'" mode={selectedMode} font="Fira Code" theme={selectedTheme}/>
 </main>
