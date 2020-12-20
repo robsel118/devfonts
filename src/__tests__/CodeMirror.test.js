@@ -62,14 +62,19 @@ test("it should rerender and append a second script", () => {
   const { rerender } = render(CodeMirror, {
     props,
   });
-
   expect(head.querySelectorAll("script").length).toBe(1);
 
+  // adding an new mode should load a new script
   props.mode = "css";
-
   rerender({
     props,
   });
+  expect(head.querySelectorAll("script").length).toBe(2);
 
+  // adding an existing mode should not add a new script
+  props.mode = "javascript";
+  rerender({
+    props,
+  });
   expect(head.querySelectorAll("script").length).toBe(2);
 });
