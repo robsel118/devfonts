@@ -14,11 +14,12 @@
 			lineWrapping: false,
     });
     
-    cm.setValue("function myScript(){return 100;}\n");
+    cm.setValue(value);
+
     document.addEventListener('mode-loaded', ()=>{
       cm.setOption('mode', mode);
       cm.refresh();
-      console.log(cm)
+
     }, false);
   });
   
@@ -38,4 +39,5 @@
 
 </script>
 
-<textarea class="test" bind:this={editor}></textarea>
+<textarea class="test" bind:this={editor}>This text area will not appear</textarea>
+
