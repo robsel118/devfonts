@@ -6,8 +6,8 @@
 	import { modes } from "./utils/modes";
 	import { themes } from "./utils/themes";
 	import { theme, mode } from "./stores";
-
-	$: style = generateFontFace();
+	import { fontFamilies } from "./utils/fonts";
+	$: styles = generateFontFace();
 </script>
 
 <style>
@@ -17,7 +17,7 @@
 		margin: 0 auto;
 	}
 
-	:global(:root){
+	:global(:root) {
 		font-size: 18px;
 	}
 	@media (min-width: 640px) {
@@ -41,12 +41,15 @@
 		href={`https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/${$theme}.css`} />
 </svelte:head>
 
-<main {style}>
+{@html `<style>${styles}</style>`}
+
+<main>
 	<Select bind:selected={$theme} light labelText="Theme">
 		{#each themes as theme}
 			<SelectItem value={theme} text={theme} />
 		{/each}
 	</Select>
+
 	<Select bind:selected={$mode} light labelText="Mode">
 		{#each modes as mode}
 			<SelectItem value={mode} text={mode} />
@@ -54,25 +57,12 @@
 	</Select>
 
 	<div class="grid">
-		<CodeMirror
-			value="const foo => 'bar'"
-			mode={$mode}
-			font="Fira Code"
-			theme={$theme} />
-		<CodeMirror
-			value="const foo => 'bar'"
-			mode={$mode}
-			font="Source Code Pro"
-			theme={$theme} />
-		<CodeMirror
-			value="const foo => 'bar'"
-			mode={$mode}
-			font="Fira Code"
-			theme={$theme} />
-		<CodeMirror
-			value="const foo => 'bar'"
-			mode={$mode}
-			font="Source Code Pro"
-			theme={$theme} />
+		{#each fontFamilies as fontFamily}
+			<CodeMirror
+				value="const foo => 'bar'"
+				mode={$mode}
+				font={fontFamily.familyName}
+				theme={$theme} />
+		{/each}
 	</div>
 </main>

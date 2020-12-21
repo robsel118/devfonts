@@ -19,6 +19,7 @@
 
     cm.setValue(value);
     cm.getWrapperElement().style["font-family"] = `${font}, monospace`;
+    cm.getWrapperElement().style["padding"] = "0.75rem 0.5rem"
 
     document.addEventListener(
       "mode-loaded",
@@ -63,6 +64,7 @@
     border-radius: 12px;
     overflow: hidden;
   }
+
 </style>
 
 <div class="wrapper">
