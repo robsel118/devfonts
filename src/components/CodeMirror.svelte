@@ -19,7 +19,6 @@
 
     cm.setValue(value);
     cm.getWrapperElement().style["font-family"] = `${font}, monospace`;
-    cm.refresh();
 
     document.addEventListener(
       "mode-loaded",
@@ -57,5 +56,16 @@
   $: cm && addScript(mode);
 </script>
 
-<textarea style="font-family: {font}" bind:this={editor}>This text area will not
-  appear</textarea>
+<style lang="scss">
+  .wrapper {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+</style>
+
+<div class="wrapper">
+  <textarea style="font-family: {font}" bind:this={editor}>This text area will
+    not appear</textarea>
+</div>

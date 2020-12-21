@@ -4,6 +4,7 @@ import CodeMirror from "../components/CodeMirror.svelte";
 
 const head = document.getElementsByTagName("head")[0];
 
+
 afterEach(() => {
   cleanup();
 
@@ -14,7 +15,9 @@ afterEach(() => {
 });
 
 class fromTextArea {
+  editor;
   constructor(editor, options) {
+    this.editor=editor;
     editor.style.display = "none";
     var div = document.createElement("div");
 
@@ -30,6 +33,15 @@ class fromTextArea {
   }
   setValue(key, value) {}
   setOption(key, value) {}
+  refresh() {}
+  getWrapperElement(){
+    return this.editor;
+    return {
+      style: {
+        
+      }
+    }
+  }
 }
 
 global.CodeMirror = {
@@ -42,6 +54,7 @@ test("it should render a codemirror component with the correct theme and value",
       mode: "javascript",
       theme: "dracula",
       value: 'const t = "hello"',
+      font: "Fira Code"
     },
   });
   expect(container.querySelector("textarea")).toHaveStyle({ display: "none" });
@@ -57,6 +70,7 @@ test("it should rerender and append a second script", () => {
     mode: "javascript",
     theme: "dracula",
     value: 'const t = "hello"',
+    font: "Fira Code"
   };
 
   const { rerender } = render(CodeMirror, {

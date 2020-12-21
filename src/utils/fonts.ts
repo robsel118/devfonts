@@ -10,20 +10,31 @@ interface Font {
   extensions: string[];
 }
 
-const firaCode: Font = {
-  displayName: 'Fira Code',
-  familyName: 'Fira Code',
-  ligatures: true,
-  price: 0,
-  url: "https://github.com/tonsky/FiraCode",
-  src: "../../fonts/FiraCode-Regular",
-  extensions: ["woff", "woff2"]
-}
+const fonts: Font [] = [
+  {
+    displayName: 'Fira Code',
+    familyName: 'Fira Code',
+    ligatures: true,
+    price: 0,
+    url: "https://github.com/tonsky/FiraCode",
+    src: "../../fonts/FiraCode-Regular",
+    extensions: ["woff", "woff2"]
+  },
+  {
+    displayName: 'Source Code Pro',
+    familyName: 'Source Code Pro',
+    ligatures: false,
+    price: 0,
+    url: "https://fonts.google.com/specimen/Source+Code+Pro",
+    src: "../../fonts/SourceCodePro_Regular",
+    extensions: ["tff"]
+  }
+]
 
 export const generateFontFace = (): string => {
   let styles = "";
 
-  [firaCode].forEach(font => {
+  fonts.forEach(font => {
 
     const src = font.extensions.reduce((acc, extension, index) =>
     {
