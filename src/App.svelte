@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Select, SelectItem } from "carbon-components-svelte";
 	import "carbon-components-svelte/css/g10.css";
-	import CodeMirror from "./components/CodeMirror.svelte";
+	import FontPreviewer from "./components/FontPreviewer.svelte";
 	import { generateFontFace } from "./utils/fonts";
 	import { modes } from "./utils/modes";
 	import { themes } from "./utils/themes";
@@ -58,11 +58,7 @@
 
 	<div class="grid">
 		{#each fontFamilies as fontFamily}
-			<CodeMirror
-				value="const foo => 'bar'"
-				mode={$mode}
-				font={fontFamily.familyName}
-				theme={$theme} />
+			<FontPreviewer font={fontFamily} />
 		{/each}
 	</div>
 </main>

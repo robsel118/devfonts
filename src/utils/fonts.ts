@@ -1,4 +1,4 @@
-interface Font {
+export interface Font {
   displayName: string;
   familyName: string;
   ligatures: boolean;
