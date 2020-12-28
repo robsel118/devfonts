@@ -23,10 +23,7 @@
     "carbon-components-svelte": "^0.26.0",
     "codemirror": "^5.58.3",
     "jest": "^26.6.3",
-<<<<<<< HEAD
-=======
     "node-sass": "^5.0.0",
->>>>>>> hotfix
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.0.0",
     "rollup-plugin-livereload": "^2.0.0",
