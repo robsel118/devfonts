@@ -21,10 +21,7 @@
     });
 
     cm.setValue(codeSnippet);
-    cm.getWrapperElement().style["font-family"] = `${font.familyName}, monospace`;
-    cm.getWrapperElement().style["padding"] = "0.75rem 0.5rem";
-    cm.getWrapperElement().style["height"] = "100%";
-    cm.getWrapperElement().style["width"] = "100%";
+    cm.getWrapperElement().className += " cm-custom";
 
     document.addEventListener(
       "mode-loaded",
@@ -67,10 +64,22 @@
   .wrapper {  
     border-radius: 12px;
     overflow: hidden;
+
+  }
+
+  :global(div.CodeMirror.cm-custom){
+    padding: 0.75rem 0.5rem;
+    font-family: var(--ff);
+    height: 100%;
+    width: 100%;
+  }
+
+  :glboal(.cm-custom){
+    width: 100%;
   }
 </style>
 
-<div class="wrapper">
+<div class="wrapper" style="--ff: {font.familyName}, monospace">
   <textarea bind:this={editor}>This text area will
     not appear</textarea>
 </div>

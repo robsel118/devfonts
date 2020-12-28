@@ -1,5 +1,5 @@
+import _ from 'lodash'
 import type{ Font } from './fonts';
-
 
 
 export class Filter {
@@ -12,13 +12,13 @@ export class Filter {
   
   byLigatures(isFiltered: boolean) {
     if (isFiltered)
-        this.fonts = this.fonts.filter(font => font.ligatures);
+        this.fonts = _.filter(this.fonts, "ligatures");
     return this;
   }
 
   byFreeFonts(isFiltered: boolean) {
     if (isFiltered)
-        this.fonts = this.fonts.filter(font => font.price === 0);
+        this.fonts = _.filter(this.fonts, font => font.price === 0);
     return this;
   }
 

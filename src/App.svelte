@@ -27,9 +27,6 @@
 		margin: 0 auto;
 	}
 
-	:global(:root) {
-		font-size: 18px;
-	}
 	@media (min-width: 640px) {
 		main {
 			max-width: 1200px;
