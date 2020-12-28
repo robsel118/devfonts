@@ -2,25 +2,29 @@
   import { mode, theme } from "../stores";
   import { onMount } from "svelte";
   import type { Font } from "../utils/fonts";
+  import { codeSnippet } from "../utils/fonts";
 
   let editor;
   let cm;
-  let value = "const foo => 'bar'";
 
   export let font: Font;
 
   onMount(() => {
     cm = new CodeMirror.fromTextArea(editor, {
-      value: value,
+      value: codeSnippet,
       lineNumbers: true,
       mode: $mode,
       theme: $theme,
       lineWrapping: false,
+      viewportMargin: Infinity,
+      scrollbarStyle: 'null',
     });
 
-    cm.setValue(value);
+    cm.setValue(codeSnippet);
     cm.getWrapperElement().style["font-family"] = `${font.familyName}, monospace`;
     cm.getWrapperElement().style["padding"] = "0.75rem 0.5rem";
+    cm.getWrapperElement().style["height"] = "100%";
+    cm.getWrapperElement().style["width"] = "100%";
 
     document.addEventListener(
       "mode-loaded",
@@ -59,8 +63,8 @@
 </script>
 
 <style lang="scss">
-  .wrapper {
-  
+
+  .wrapper {  
     border-radius: 12px;
     overflow: hidden;
   }
