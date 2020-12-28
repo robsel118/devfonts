@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
-
-interface Font {
-=======
 export interface Font {
->>>>>>> hotfix
   displayName: string;
   familyName: string;
   ligatures: boolean;
@@ -14,30 +8,6 @@ export interface Font {
   extensions: string[];
 }
 
-<<<<<<< HEAD
-const firaCode: Font = {
-  displayName: 'Fira Code',
-  familyName: 'Fira Code',
-  ligatures: true,
-  price: 0,
-  url: "https://github.com/tonsky/FiraCode",
-  src: "../../fonts/FiraCode-Regular",
-  extensions: ["woff", "woff2"]
-}
-
-export const generateFontFace = (): string => {
-  let styles = "";
-
-  [firaCode].forEach(font => {
-
-    const src = font.extensions.reduce((acc, extension, index) =>
-    {
-      acc += `url(${font.src}.${extension}) format('${extension}')`;
-      acc += (index + 1) === font.extensions.length ? ";" : ",";
-      return acc;
-    }
-    , "")
-=======
 export const fontFamilies: Font[] = [
   {
     displayName: "Fira Code",
@@ -175,22 +145,14 @@ export const generateFontFace = (): string => {
       return acc;
     }, "");
     
->>>>>>> hotfix
     styles += `
     @font-face {
       font-family: '${font.familyName}';
       src: ${src}
       font-weight: 400;
       font-style: normal;
-<<<<<<< HEAD
-    }`
-  })
-  return styles;
-}
-=======
     }\n`;
   });
 
   return styles;
 };
->>>>>>> hotfix
