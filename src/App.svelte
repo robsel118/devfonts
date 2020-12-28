@@ -1,20 +1,27 @@
 <script lang="ts">
-	import { Select, SelectItem, Checkbox } from "carbon-components-svelte";
+	import {
+		Select,
+		SelectItem,
+		Checkbox,
+		Toggle,
+	} from "carbon-components-svelte";
 	import "carbon-components-svelte/css/g10.css";
 	import FontPreviewer from "./components/FontPreviewer.svelte";
 	import { generateFontFace } from "./utils/fonts";
 	import { modes } from "./utils/modes";
 	import { themes } from "./utils/themes";
-	import { theme, mode } from "./stores";
+	import { theme, mode, pinnedFonts } from "./stores";
 	import { fontFamilies } from "./utils/fonts";
 	import { Filter } from "./utils/filters";
-
+	import _ from "lodash";
 	let filterByLigatures: false;
 	let filterByFreeFonts: false;
+	let filterByPinnedFonts: false;
 
 	$: fontList = new Filter(fontFamilies)
 		.byLigatures(filterByLigatures)
 		.byFreeFonts(filterByFreeFonts)
+		.byPinnedFonts(filterByPinnedFonts, $pinnedFonts)
 		.getFonts();
 
 	$: styles = generateFontFace();
@@ -22,8 +29,7 @@
 
 <style>
 	main {
-		padding: 1em;
-		max-width: 240px;
+		padding: 2em;
 		margin: 0 auto;
 	}
 
@@ -75,8 +81,11 @@
 			{/each}
 		</Select>
 
-		<Checkbox labelText="Ligatures" bind:checked={filterByLigatures} />
+		<Checkbox labelText="Ligatures" bind:checked={filterByLigatures}  />
 		<Checkbox labelText="Free Fonts" bind:checked={filterByFreeFonts} />
+		<Toggle
+			labelText="Display only pinned fonts"
+			bind:toggled={filterByPinnedFonts} />
 	</div>
 
 	<div class="list">

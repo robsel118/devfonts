@@ -84,7 +84,7 @@
       position: absolute;
       bottom: 10px;
       right: 10px;
-      // opacity: 0;
+      opacity: 0;
       transition: opacity 0.2s ease-in-out;
       cursor: pointer;
       stroke: white;

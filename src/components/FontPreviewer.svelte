@@ -1,17 +1,29 @@
 <script lang="ts">
     import { Tag, TooltipIcon } from "carbon-components-svelte";
-    import Compare32 from "carbon-icons-svelte/lib/Compare32";
+    import Pin24 from "carbon-icons-svelte/lib/Pin24";
+    import PinFilled24 from "carbon-icons-svelte/lib/PinFilled24";
     import CodeMirror from "./CodeMirror.svelte";
     import type { Font } from "../utils/fonts";
+    import { pinnedFonts } from "../stores";
+    import _ from "lodash";
 
     export let font: Font;
+    $: isPinned = _.includes($pinnedFonts, font.displayName);
+
+    function onPinClick() {
+        if (isPinned) {
+            pinnedFonts.remove(font.displayName);
+        } else {
+            pinnedFonts.add(font.displayName);
+        }
+    }
 </script>
 
 <style lang="scss">
     .wrapper {
         display: flex;
         flex-direction: column;
-        max-width: 45%;
+        max-width: clamp(450px, 40em, 90%);
         padding-bottom: 3rem;
         width: 100%;
     }
@@ -34,7 +46,7 @@
     }
 </style>
 
-<div class="wrapper">
+<div class="wrapper" >
     <div class="flex-row header">
         <a href={font.url}><p
                 class="font-title"
@@ -42,8 +54,16 @@
                 {font.displayName}
             </p></a>
 
-        <TooltipIcon tooltipText="Add font to the compare list">
-            <Compare32 />
+        <TooltipIcon
+            tooltipText={`${isPinned ? 'Remove' : 'Add'} font to the compare list`}
+            direction="left"
+            align="end"
+            on:click={onPinClick}>
+            {#if isPinned}
+                <PinFilled24 />
+            {:else}
+                <Pin24 />
+            {/if}
         </TooltipIcon>
     </div>
     <div class="flex-row details">
