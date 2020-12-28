@@ -3,28 +3,27 @@
 </script>
 
 <style lang="scss">
-    .flex{
-        display: flex;   
+    .flex {
+        display: flex;
     }
 
-    .items-end{
+    .items-end {
         align-items: flex-end;
     }
 
-    .justify-between{
+    .justify-between {
         justify-content: space-between;
     }
-    .row{
+    .row {
         flex-direction: row;
     }
-    h1{
+    h1 {
         font-size: 2rem;
     }
 
-    .col{
+    .col {
         flex-direction: column;
     }
-
 </style>
 
 <header class="flex row justify-between items-end">

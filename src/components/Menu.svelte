@@ -7,12 +7,11 @@
     } from "carbon-components-svelte";
     import { modes } from "../utils/modes";
     import { themes } from "../utils/themes";
-	import { theme, mode } from "../stores";
-
+    import { theme, mode } from "../stores";
 
     export let filterByLigatures;
-	export let filterByFreeFonts;
-	export let filterByPinnedFonts;
+    export let filterByFreeFonts;
+    export let filterByPinnedFonts;
 </script>
 
 <style>
@@ -24,13 +23,11 @@
         border-bottom: 1px solid #ddd;
     }
 
-
-	@media (min-width: 640px) {
-
-		.menu {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
+    @media (min-width: 640px) {
+        .menu {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 </style>
 
 <div class="menu">

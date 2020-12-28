@@ -4,14 +4,14 @@
   import { mode, theme, snippet } from "../stores";
   import { onMount } from "svelte";
   import type { Font } from "../utils/fonts";
-
-  let editor;
-  let cm;
-
+  
   export let font: Font;
 
+  let editorRef;
+  let cm;
+
   onMount(() => {
-    cm = new CodeMirror.fromTextArea(editor, {
+    cm = new CodeMirror.fromTextArea(editorRef, {
       value: $snippet,
       lineNumbers: true,
       mode: $mode,
@@ -21,7 +21,6 @@
       scrollbarStyle: "null",
     });
 
-    cm.setValue($snippet);
     cm.getWrapperElement().className += " cm-custom";
 
     document.addEventListener(
@@ -44,10 +43,7 @@
       return;
 
     var script = document.createElement("script");
-    script.setAttribute(
-      "src",
-      `https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/${mode}/${mode}.min.js`
-    );
+    script.setAttribute("src", scriptSrc);
     script.setAttribute("type", "text/javascript");
     script.setAttribute(
       "onLoad",
@@ -56,12 +52,9 @@
     document.getElementsByTagName("head")[0].appendChild(script);
   }
 
-  function copyToEditors(){
-    if(cm)
-      snippet.set(cm.getValue())
+  function copyToEditors() {
+    if (cm) snippet.set(cm.getValue());
   }
-
-
 
   $: cm && cm.setOption("theme", $theme);
   $: cm && addScript($mode);
@@ -96,15 +89,18 @@
     font-family: var(--ff);
     height: 100%;
     width: 100%;
-    line-height: 120%;;
+    line-height: 120%;
   }
-
 </style>
 
 <div class="wrapper" style="--ff: {font.familyName}, monospace">
-  <textarea bind:this={editor}>This text area will not appear</textarea>
+  <textarea bind:this={editorRef}>This text area will not appear</textarea>
   <div class="fab">
-    <TooltipIcon tooltipText="Copy code to all editors" direction="left" align="end" on:click={copyToEditors}>
+    <TooltipIcon
+      tooltipText="Copy code to all editors"
+      direction="left"
+      align="end"
+      on:click={copyToEditors}>
       <Paste24 />
     </TooltipIcon>
   </div>

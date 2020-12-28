@@ -8,6 +8,7 @@
     import _ from "lodash";
 
     export let font: Font;
+    
     $: isPinned = _.includes($pinnedFonts, font.displayName);
 
     function onPinClick() {
