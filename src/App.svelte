@@ -47,10 +47,14 @@
 		href={`https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/${$theme}.css`} />
 </svelte:head>
 
-{@html `<style ✂prettier:content✂="JHtzdHlsZXN9"></style>`}
+<!-- prettier-ignore -->
+{@html `<style>${styles}</style>`}
 
 <main>
-	<Menu bind:filterByPinnedFonts bind:filterByLigatures bind:filterByFreeFonts/>
+	<Menu
+		bind:filterByPinnedFonts
+		bind:filterByLigatures
+		bind:filterByFreeFonts />
 	<div class="list">
 		{#each fontList as fontFamily}
 			<FontPreviewer font={fontFamily} />
