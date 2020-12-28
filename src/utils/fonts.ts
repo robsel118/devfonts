@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export interface Font {
   displayName: string;
   familyName: string;
@@ -8,7 +10,7 @@ export interface Font {
   extensions: string[];
 }
 
-export const fontFamilies: Font[] = [
+const fonts: Font[] = [
   {
     displayName: "Fira Code",
     familyName: "Fira Code",
@@ -126,25 +128,28 @@ const formats = {
   otf: "opentype",
 };
 
-/**
- * 
- * o0O s5S z2Z !|l1Iij {([|})] .,;: ``''"" 
-a@#* vVuUwW <>;^°=-~ öÖüÜäÄßµ \/\/ 
-the quick brown fox jumps over the lazy dog
-THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-0123456789 &-+@ for (int i=0; i<j; ++i) { }
- * 
- */
+export const codeSnippet = "/** \n* \m * o0O s5S z2Z !|l1Iij {([|})] .,;: ``''\"\" \n" +
+  "a@#* vVuUwW <>;^°=-~ öÖüÜäÄßµ \/\/ \nthe quick brown fox jumps over the lazy dog" +
+  "\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\n0123456789 &-+@ for (int i=0; i<=j; ++i) { }\n* \n*/\n" +
+  "\n\nfonts.forEach(font => {\n" +
+  "\n\tconst { name, price } = font;\n" +
+  "\n\tif (price >= 20) {\n" +
+  "\t\tconsole.log(`${name} is a deluxe font`);\n" +
+  "\t}else if(price === 0)\n" +
+  "\t\tconsole.log(`${name} is a free font`);\n" +
+  "\t}\n" +
+  "})"
+
 export const generateFontFace = (): string => {
   let styles = "";
 
-  fontFamilies.forEach((font) => {
+  fonts.forEach((font) => {
     const src = font.extensions.reduce((acc, extension, index) => {
       acc += `url(${font.src}.${extension}) format('${formats[extension]}')`;
       acc += index + 1 === font.extensions.length ? ";" : ",";
       return acc;
     }, "");
-    
+
     styles += `
     @font-face {
       font-family: '${font.familyName}';
@@ -156,3 +161,5 @@ export const generateFontFace = (): string => {
 
   return styles;
 };
+
+export const fontFamilies = _.sortBy(fonts, "displayName");
