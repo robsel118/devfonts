@@ -2,11 +2,13 @@
 	import "carbon-components-svelte/css/g10.css";
 	import FontPreviewer from "./components/FontPreviewer.svelte";
 	import Menu from "./components/Menu.svelte";
+	import Header from "./components/Header.svelte";
 	import { generateFontFace } from "./utils/fonts";
 
 	import { theme, pinnedFonts } from "./stores";
 	import { fontFamilies } from "./utils/fonts";
 	import { Filter } from "./utils/filters";
+
 	let filterByLigatures: false;
 	let filterByFreeFonts: false;
 	let filterByPinnedFonts: false;
@@ -20,7 +22,7 @@
 	$: styles = generateFontFace();
 </script>
 
-<style>
+<style lang="scss">
 	main {
 		padding: 2em;
 		margin: 0 auto;
@@ -39,13 +41,15 @@
 		justify-content: space-between;
 		gap: 1rem;
 	}
-	.menu {
-		display: grid;
-		gap: 1.5rem;
-		margin: 2rem 0;
-		padding: 1rem 0;
-		border-bottom: 1px solid #ddd;
-	}
+	:global(a) {
+        color: black;
+        transition: color 0.3s ease-in-out;
+		text-decoration: none;
+        &:hover{
+            color: #527397;
+        }
+
+    }
 </style>
 
 <svelte:head>
@@ -58,6 +62,7 @@
 {@html `<style>${styles}</style>`}
 
 <main>
+	<Header/>
 	<Menu
 		bind:filterByPinnedFonts
 		bind:filterByLigatures

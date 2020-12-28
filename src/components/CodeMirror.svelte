@@ -96,11 +96,9 @@
     font-family: var(--ff);
     height: 100%;
     width: 100%;
+    line-height: 120%;;
   }
 
-  :glboal(.cm-custom) {
-    width: 100%;
-  }
 </style>
 
 <div class="wrapper" style="--ff: {font.familyName}, monospace">

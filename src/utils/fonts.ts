@@ -128,9 +128,9 @@ const formats = {
   otf: "opentype",
 };
 
-export const codeSnippet = "/** \n* \m * o0O s5S z2Z !|l1Iij {([|})] .,;: ``''\"\" \n" +
+export const codeSnippet = "o0O s5S z2Z !|l1Iij {([|})] .,;: ``''\"\" \n" +
   "a@#* vVuUwW <>;^°=-~ öÖüÜäÄßµ \/\/ \nthe quick brown fox jumps over the lazy dog" +
-  "\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\n0123456789 &-+@ for (int i=0; i<=j; ++i) { }\n* \n*/\n" +
+  "\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\n0123456789 &-+@ for (int i=0; i<=j; ++i) { }\n" +
   "\n\nfonts.forEach(font => {\n" +
   "\n\tconst { name, price } = font;\n" +
   "\n\tif (price >= 20) {\n" +

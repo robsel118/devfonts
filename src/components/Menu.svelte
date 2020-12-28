@@ -20,7 +20,7 @@
         display: grid;
         gap: 1.5rem;
         margin: 2rem 0;
-        padding: 1rem 0;
+        padding: 1rem 0 3rem 0;
         border-bottom: 1px solid #ddd;
     }
 

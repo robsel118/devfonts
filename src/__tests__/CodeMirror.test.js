@@ -4,10 +4,6 @@ import CodeMirror from "../components/CodeMirror.svelte";
 
 const head = document.getElementsByTagName("head")[0];
 
-<<<<<<< HEAD
-=======
-
->>>>>>> hotfix
 afterEach(() => {
   cleanup();
 
@@ -18,13 +14,9 @@ afterEach(() => {
 });
 
 class fromTextArea {
-<<<<<<< HEAD
-  constructor(editor, options) {
-=======
   editor;
   constructor(editor, options) {
     this.editor=editor;
->>>>>>> hotfix
     editor.style.display = "none";
     var div = document.createElement("div");
 
@@ -40,8 +32,6 @@ class fromTextArea {
   }
   setValue(key, value) {}
   setOption(key, value) {}
-<<<<<<< HEAD
-=======
   refresh() {}
   getWrapperElement(){
     return this.editor;
@@ -51,7 +41,6 @@ class fromTextArea {
       }
     }
   }
->>>>>>> hotfix
 }
 
 global.CodeMirror = {
@@ -64,20 +53,12 @@ test("it should render a codemirror component with the correct theme and value",
       mode: "javascript",
       theme: "dracula",
       value: 'const t = "hello"',
-<<<<<<< HEAD
-    },
-  });
-  expect(container.querySelector("textarea")).toHaveStyle({ display: "none" });
-  expect(container.querySelectorAll("div")[1]).toHaveClass("CodeMirror");
-  expect(container.querySelectorAll("div")[1]).toHaveClass("cm-s-dracula");
-=======
       font: "Fira Code"
     },
   });
   expect(container.querySelector("textarea")).toHaveStyle({ display: "none" });
   expect(container.querySelectorAll("div")[2]).toHaveClass("CodeMirror");
   expect(container.querySelectorAll("div")[2]).toHaveClass("cm-s-dracula");
->>>>>>> hotfix
   expect(container.querySelectorAll("textarea")[1]).toHaveValue(
     'const t = "hello"'
   );
@@ -88,10 +69,7 @@ test("it should rerender and append a second script", () => {
     mode: "javascript",
     theme: "dracula",
     value: 'const t = "hello"',
-<<<<<<< HEAD
-=======
     font: "Fira Code"
->>>>>>> hotfix
   };
 
   const { rerender } = render(CodeMirror, {
