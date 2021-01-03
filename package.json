@@ -6,7 +6,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "validate": "svelte-check",
-    "test": "jest src"
+    "test": "jest src",
+    "commit": "cz"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
