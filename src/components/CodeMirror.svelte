@@ -93,7 +93,7 @@
   }
 </style>
 
-<div class="wrapper" style="--ff: {font.familyName}, monospace">
+<div class="wrapper" style="--ff: {font.familyName}, Times New Roman">
   <textarea bind:this={editorRef}>This text area will not appear</textarea>
   <div class="fab">
     <TooltipIcon

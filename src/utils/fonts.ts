@@ -176,7 +176,7 @@ const fonts: Font[] = [
   {
     displayName: "Iosevka",
     familyName: "Iosevka",
-    ligatures: false,
+    ligatures: true,
     price: 0,
     url: "https://github.com/be5invis/Iosevka",
     src: "fonts/Iosevka/Iosevka-regular",
@@ -190,6 +190,33 @@ const fonts: Font[] = [
     url: "https://github.com/IBM/plex",
     src: "fonts/IBM_Plex_Mono/IBMPlexMono-Regular",
     extensions: ["woff", "woff2"],
+  },
+  {
+    displayName: "Office Code Pro",
+    familyName: "Office Code Pro",
+    ligatures: false,
+    price: 0,
+    url: "https://github.com/nathco/Office-Code-Pro",
+    src: "fonts/OfficeCodePro/OfficeCodePro-Regular",
+    extensions: ["woff", "woff2"],
+  },
+  {
+    displayName: "Hack",
+    familyName: "Hack",
+    ligatures: false,
+    price: 0,
+    url: "https://sourcefoundry.org/hack/",
+    src: "fonts/Hack/Hack-Regular",
+    extensions: ["ttf"],
+  },
+  {
+    displayName: "Menlo",
+    familyName: "Menlo",
+    ligatures: false,
+    price: 0,
+    url: "https://www.cufonfonts.com/font/menlo",
+    src: "fonts/Menlo/Menlo-Regular",
+    extensions: ["woff"],
   },
 ];
 
@@ -228,6 +255,7 @@ export const generateFontFace = (): string => {
       src: ${src}
       font-weight: 400;
       font-style: normal;
+      font-variant-ligatures: liga;
     }\n`;
   });
 
